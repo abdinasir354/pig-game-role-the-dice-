@@ -84,15 +84,23 @@ btnhold.addEventListener('click', function () {
 
 // resting the game or new game
 btnew.addEventListener('click', function () {
-  document.getElementById(`score--${activePlayer}`).textContent = 0;
-  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  // Reset scores and game state
+  scors[0] = 0;
+  scors[1] = 0;
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+
+  // Reset UI
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
   dicEl.classList.add('hidden');
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove('player--winner');
-  document;
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.add('active--player');
-  document;
+
+  // Remove winner class and reset active player
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
 });
